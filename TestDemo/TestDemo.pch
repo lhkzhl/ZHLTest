@@ -1,0 +1,182 @@
+//
+//  TestDemo.pch
+//  TestDemo
+//
+//  Created by ClearWB on 16/9/6.
+//  Copyright © 2016年 zhl. All rights reserved.
+//
+
+#ifndef TestDemo_pch
+#define TestDemo_pch
+
+//================= Header =====================
+#import <AFNetworking.h>
+#import <SVProgressHUD.h>
+#import "MJExtension.h"
+#import "Masonry.h"
+#import "SDCycleScrollView.h"
+#import "UIImageView+WebCache.h"
+#import "MJRefresh.h"
+#import "UIButton+ZSC.h"
+#import "UIView+YYAdd.h"
+#import "UIView+ZHL.h"
+//#import "HttpRequsetManager.h"
+//#import "DataCenter.h"
+#import "SDWebImage/UIButton+WebCache.h"
+#import "IQKeyboardManager/IQUITextFieldView+Additions.h"
+//#import "ZFPlayer.h"
+//#import "LoginViewController.h"
+
+//================= Tool ===================
+
+#ifndef  ScreenWidth
+#define ScreenWidth      [UIScreen mainScreen].bounds.size.width
+#endif
+#ifndef  ScreenHeight
+#define ScreenHeight      [UIScreen mainScreen].bounds.size.height
+#endif
+
+#define ScreenBounds     [UIScreen mainScreen].bounds
+
+// RGB颜色转换（16进制->10进制）
+#define R_G_B_16(rgbValue)\
+\
+[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 \
+alpha:1.0]
+
+//获取RGB的颜色
+#define RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+#define RGBAT(r,g,b,a) [UIColor colorWithRed:(r) green:(g) blue:(b) alpha:(a)]
+
+//应用统一色值
+#define Color_Orange R_G_B_16(0xff6c00)
+#define Color_Purple R_G_B_16(0x9f066b)
+#define Color_Red R_G_B_16(0xf1303b)
+#define Color_Black R_G_B_16(0x222222)
+#define Color_Gray R_G_B_16(0x999999)
+#define Color_LightGray R_G_B_16(0xd1d1d1)
+#define Color_Green R_G_B_16(0x29cd6e)
+#define Color_line R_G_B_16(0xdddddd)
+
+#define Color_LabeTitle R_G_B_16(0x181818)
+#define Color_LabeText R_G_B_16(0x565656)
+#define Color_LabeLightText R_G_B_16(0x888888)
+
+#define Color_theme R_G_B_16(0xee5f94)
+#define Color_bottomGray R_G_B_16(0xf5f5f5)
+
+#define ColorFrom0xRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define RGBCOLOR(r, g, b, a) [UIColor colorWithRed:(r / 255.0) green:(g / 255.0) blue:(b / 255.0) alpha:a]
+
+#define Color_Random [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1]
+
+//字体
+#define CustomFont(s)  [UIFont systemFontOfSize:s]
+//统一字体
+#define FontSize_NavTitle  18       //导航标题
+#define FontSize_MainTitle  15     //主要
+#define FontSize_BtnTitle  16       //按钮标题
+#define FontSize_SecondaryTitle  14 //次要
+#define FontSize_Content  14        //内容
+#define FontSize_CurrentPrice  14   //当前价格
+#define FontSize_OriginalPrice  12  //原价
+#define FontSize_TipLabel  12  //原价
+#define FontSize_WarnLabel  11  //原价
+
+
+#define Font_NavTitle  CustomFont(18)       //导航标题
+#define Font_MainTitle  CustomFont(15)     //主要
+#define Font_BtnTitle  CustomFont(16)       //按钮标题
+#define Font_SecondaryTitle  CustomFont(14) //次要
+#define Font_Content  CustomFont(14)        //内容
+#define Font_CurrentPrice  CustomFont(14)   //当前价格
+#define Font_OriginalPrice  CustomFont(12)  //原价
+#define Font_TipLabel  CustomFont(12)  //原价
+#define Font_WarnLabel  CustomFont(11)  //原价
+
+//适配时放缩比例
+#define SCALE ([UIScreen mainScreen].bounds.size.width/375.0) //以主流iPhone6为基准
+
+//防止循环引用
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+//=================== requestHeader=================
+
+#define KAccessToken                 @"accessToken"     //token
+#define KClientName                  @"clientName"      //客户端名称
+#define KClientVersion               @"clientVersion"   //版本号
+#define KClientMeid                  @"clientMeid"      //设备串码
+#define KPushId                      @"pushId"          //推送ID
+#define KDeviceType                  @"deviceType"      //设备类型 0：iOS 1：android
+#define KDeviceName                  @"deviceName"      //设备名称
+
+//=================== Notification =================
+
+#define Notification [NSNotificationCenter defaultCenter]
+
+#define Noti_locationAddress @"noti_locationAddress"
+#define Noti_loginSuccess @"noti_loginSuccess"
+#define Noti_loginOut @"noti_loginOut"
+
+
+//=================== UserDefaults =================
+
+#define KUserDefault                [NSUserDefaults standardUserDefaults]
+#define GetToken                    [KUserDefault objectForKey:UserDefaults_token]
+#define Version                     @"appVersion"   //版本号
+#define UserDefaults_SaveUsername   @"App_Username"  //记住账号
+#define UserDefaults_push           @"pushId"                    //极光推送
+#define UserDefaults_SavePassword   @"App_password"  //记住账号
+
+
+//#define App_IsLogin  [[NSUserDefaults standardUserDefaults] boolForKey:App_Login]    //取APP_Login对应的值
+//#define App_Login @"App_Login"   //记录登录状态
+#define App_LoginStatus             @"App_LoginStatus"
+#define App_IsLogin                 [[NSUserDefaults standardUserDefaults] boolForKey:App_LoginStatus]
+
+#define UserDefaults_token          @"token"                      //token 请求头验证登录用户信息
+
+//Token
+#define PushId                      [[NSUserDefaults standardUserDefaults]valueForKey:UserDefaults_push]
+
+
+
+
+//====================KEY===========================
+
+
+
+
+//shareSDK
+#define SHARESDK_APP_KEY @"f871bd766fc9"
+#define SHARESDK_App_Secret @"abf19701d67d20e5836596345209923d"
+//微信好友，朋友圈
+#define WX_APP_KEY @"wxe790bea1d6bbe1ed"
+#define WX_App_Secret @"76531f01015d7efca5a213e74f7bcdbd"
+//QQ
+#define QQ_APP_KEY @"1105186622"
+#define QQ_App_Secret @"3vD8kzgjGQZgLYDV"
+
+//高德Key
+//#define AMapKey @"4a12f2ff270ae34698e6cf9d090e737a"
+#define AMapKey @"4af80c4fd5410351be309ecb3938df99"
+
+
+//*******************一些常量**************************************/
+static const CGFloat kButtonTouchTimeInterval = 2.5f;
+
+
+
+
+
+#ifdef DEBUG
+#define DLog( s, ... ) NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+
+#import "NSDictionary+unicode.h"
+#else
+#define DLog( s, ... )
+#endif
+
+#endif /* TestDemo_pch */

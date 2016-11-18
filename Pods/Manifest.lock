@@ -1,0 +1,84 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - AMap2DMap (3.3.0)
+  - AMapLocation (1.2.2)
+  - AMapSearch (3.3.0)
+  - CYLTabBarController (1.6.0)
+  - IQKeyboardManager (4.0.4)
+  - Masonry (1.0.1)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.12)
+  - MOBFoundation (2.0.8)
+  - pop (1.0.9)
+  - SDCycleScrollView (1.65):
+    - SDWebImage (~> 3.7)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+  - ShareSDK3 (3.1.9):
+    - ShareSDK3/ShareSDK (= 3.1.9)
+  - ShareSDK3/ShareSDK (3.1.9)
+  - ShareSDK3/ShareSDKPlatforms/QQ (3.1.9)
+  - ShareSDK3/ShareSDKPlatforms/SinaWeibo (3.1.9)
+  - ShareSDK3/ShareSDKPlatforms/WeChat (3.1.9)
+  - ShareSDK3/ShareSDKUI (3.1.9)
+  - SVProgressHUD (2.0.3)
+  - VBFPopFlatButton (0.0.7):
+    - pop
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - AMap2DMap (~> 3.3.0)
+  - AMapLocation (~> 1.2.2)
+  - AMapSearch (~> 3.3.0)
+  - CYLTabBarController
+  - IQKeyboardManager
+  - Masonry
+  - MJExtension
+  - MJRefresh
+  - MOBFoundation
+  - SDCycleScrollView
+  - SDWebImage (~> 3.8.1)
+  - ShareSDK3 (~> 3.1.0)
+  - ShareSDK3/ShareSDKPlatforms/QQ
+  - ShareSDK3/ShareSDKPlatforms/SinaWeibo
+  - ShareSDK3/ShareSDKPlatforms/WeChat
+  - ShareSDK3/ShareSDKUI
+  - SVProgressHUD
+  - VBFPopFlatButton
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AMap2DMap: e53461cdc345375e514579db17dbd721ff9ed9eb
+  AMapLocation: 5412fbf0385716d4d481e39a95929057cddc093f
+  AMapSearch: cff4faf59c007f7d1f2bae2d7170c3912783981a
+  CYLTabBarController: efbdd574772be17f17965acd7ee993f5972ff02f
+  IQKeyboardManager: 4a6f83b540283c2645aaeba2bd8dc0f09b5c77f8
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MOBFoundation: 6f2006b941bd4002e2689a638d04c6b535c4cc64
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  ShareSDK3: ff0eabec9a9073bacb4ae13f7cf07ab7c7df7f0b
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  VBFPopFlatButton: 39e48ab56277f3d056734a9b5ec5d0cc60d69778
+
+PODFILE CHECKSUM: 5f4f6ef019de1a861d8eb7a0e6625a20bea71117
+
+COCOAPODS: 1.0.1
