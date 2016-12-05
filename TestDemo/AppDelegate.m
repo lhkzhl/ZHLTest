@@ -17,6 +17,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    
+    NSDecimalNumber *num1 = [[NSDecimalNumber alloc] initWithFloat:100.65];
+    NSDecimalNumber *num2 = [[NSDecimalNumber alloc] initWithFloat:7.0];
+    NSDecimalNumber *num3 = [num1 decimalNumberByDividingBy:num2];
+    NSDecimalNumberHandler *handle = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundDown scale:2 raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:YES];
+    NSDecimalNumber *num4 = [num3 decimalNumberByRoundingAccordingToBehavior:handle];
+    NSDecimalNumber *num5 = [num4 decimalNumberByMultiplyingBy:num2];
+    NSLog(@"%@\n%lld",num2,num5.longLongValue);
+    
+    
+    double a = (double)100.59/7.0;
+    
+    double b = [NSString stringWithFormat:@"%.2f",a].doubleValue;
+    double c = b;
+    NSLog(@"a:%lf--b:%lf",a,b);
+    NSLog(@"%lf---%lf--%lf",14.380000*7.0,b*7,c*7);
+    
     return YES;
 }
 
