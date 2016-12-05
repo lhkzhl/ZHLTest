@@ -8,6 +8,7 @@
 
 #import "CollectionViewController.h"
 #import "FlowLayout.h"
+#import "CollectionViewCell.h"
 @interface CollectionViewController ()
 
 @end
@@ -23,12 +24,13 @@ static NSString * const reuseIdentifier = @"Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     FlowLayout *flowLayout = [FlowLayout new];
-//    UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
-//    flowLayout.itemSize = CGSizeMake(70, 30);
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    flowLayout.itemSize = CGSizeMake(ScreenWidth, ScreenHeight);
+
     self.collectionView.collectionViewLayout = flowLayout;
-    
+    self.collectionView.pagingEnabled = YES;
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
@@ -53,47 +55,42 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of items
-    return 50;
+    return 3;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    cell.backgroundColor = Color_theme;
+    cell.backgroundColor = Color_Random;
     // Configure the cell
-    
+    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%zd",indexPath.item + 1]];
+    cell.imageView.alpha = 0.3;
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
 
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat X = scrollView.contentOffset.x;
+    NSArray *visibleCells = self.collectionView.visibleCells;
+    for (int i = 0; i < visibleCells.count; i++) {
+        
+        CollectionViewCell *cell = visibleCells[i];
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+        
+        //X scrollView偏移量
+        //indexPath.item * self.collectionView.width  当前cell  x
+        //(X - indexPath.item * self.collectionView.width)  当前cell 相对屏幕的偏移,正中心的很小，右边为
+        //
+        
+        //数学计算还是很麻烦的
+        
+        //父子视图视差
+        cell.contentView.left   = 0.6 * (X - indexPath.item * cell.width) ;
+        cell.contentView.top   = 0.6 * (X - indexPath.item * cell.width) ;
+        NSLog(@"%@",cell.imageView);
+    }
+        NSLog(@"\n\n");
 }
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
-
 @end

@@ -38,6 +38,7 @@
 		0ECFD7871D7FFEA80016C488 /* UIButton+ZSC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECFD7861D7FFEA80016C488 /* UIButton+ZSC.m */; };
 		0ECFD78A1D7FFED40016C488 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECFD7891D7FFED40016C488 /* UIView+YYAdd.m */; };
 		0ECFD78D1D7FFF000016C488 /* NSDictionary+unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECFD78C1D7FFF000016C488 /* NSDictionary+unicode.m */; };
+		0ED6DF4C1DF1171B00C80DB7 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6DF4B1DF1171B00C80DB7 /* CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,8 @@
 		0ECFD7891D7FFED40016C488 /* UIView+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYAdd.m"; sourceTree = "<group>"; };
 		0ECFD78B1D7FFF000016C488 /* NSDictionary+unicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+unicode.h"; sourceTree = "<group>"; };
 		0ECFD78C1D7FFF000016C488 /* NSDictionary+unicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+unicode.m"; sourceTree = "<group>"; };
+		0ED6DF4A1DF1171B00C80DB7 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		0ED6DF4B1DF1171B00C80DB7 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		A1812AAEC9E63E7BF34DDB15 /* Pods-TestDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestDemo/Pods-TestDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A541BB4E750075F8BCCA48DA /* Pods-TestDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDemo/Pods-TestDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		A8A8EC8FCA9A3132C80042D0 /* libPods-TestDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +197,8 @@
 				0EC0C9881D841FEE001D34E0 /* TableViewController.m */,
 				0EA9350D1D9C1A22001916DA /* FlowLayout.h */,
 				0EA9350E1D9C1A22001916DA /* FlowLayout.m */,
+				0ED6DF4A1DF1171B00C80DB7 /* CollectionViewCell.h */,
+				0ED6DF4B1DF1171B00C80DB7 /* CollectionViewCell.m */,
 				0EA9350A1D9C13C7001916DA /* CollectionViewController.h */,
 				0EA9350B1D9C13C7001916DA /* CollectionViewController.m */,
 				0E6AB0591D88493B00D649B0 /* TestViewController.swift */,
@@ -415,7 +420,9 @@
 				TargetAttributes = {
 					0E7682371D7D715900F40B60 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4PHWH595B3;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 					0E7682501D7D715900F40B60 = {
 						CreatedOnToolsVersion = 7.2;
@@ -535,6 +542,7 @@
 				0E450BED1DADCC6700D2EDFF /* ZHLCycleScrollView.m in Sources */,
 				0E7682401D7D715900F40B60 /* AppDelegate.m in Sources */,
 				0E6AB05A1D88493B00D649B0 /* TestViewController.swift in Sources */,
+				0ED6DF4C1DF1171B00C80DB7 /* CollectionViewCell.m in Sources */,
 				0ECFD78D1D7FFF000016C488 /* NSDictionary+unicode.m in Sources */,
 				0ECFD7871D7FFEA80016C488 /* UIButton+ZSC.m in Sources */,
 				0E20AA341DB9BFBE001EF3D6 /* UIButton+Delay.m in Sources */,
@@ -694,15 +702,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: lei sun (F2M5L9T4D9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: lei sun (F2M5L9T4D9)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4PHWH595B3;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = TestDemo/TestDemo.pch;
 				INFOPLIST_FILE = TestDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ksfc.meizhuang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhl.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3d3e73ec-a51d-469d-acf6-d37405006903";
+				PROVISIONING_PROFILE = "7f4ddb56-eb62-4988-a760-8ffbcd9f83a2";
+				PROVISIONING_PROFILE_SPECIFIER = ksfc_dev_any;
 				SWIFT_OBJC_BRIDGING_HEADER = "TestDemo/TestDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -716,15 +726,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: lei sun (F2M5L9T4D9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: lei sun (F2M5L9T4D9)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = TestDemo/TestDemo.pch;
 				INFOPLIST_FILE = TestDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ksfc.meizhuang;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhl.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3d3e73ec-a51d-469d-acf6-d37405006903";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TestDemo/TestDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "";
