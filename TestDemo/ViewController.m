@@ -56,7 +56,8 @@
 
     
     
-
+//[NSObject mj_keyValuesArrayWithObjectArray:<#(NSArray *)#>]
+//    [self mj_keyValuesWithKeys:<#(NSArray *)#>]
 }
 
 

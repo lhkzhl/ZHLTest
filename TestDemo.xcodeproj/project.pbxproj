@@ -31,13 +31,13 @@
 		0E97F1B51D893B8F006C2339 /* NSString+ZHL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E97F1B41D893B8F006C2339 /* NSString+ZHL.m */; };
 		0E99854E1D80FDCB0001F0E5 /* UIViewController+Dispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E99854D1D80FDCB0001F0E5 /* UIViewController+Dispatch.m */; };
 		0EA3A3481D93CF6E00296D20 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA3A3471D93CF6E00296D20 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		0EA9350C1D9C13C7001916DA /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9350B1D9C13C7001916DA /* CollectionViewController.m */; };
-		0EA9350F1D9C1A22001916DA /* FlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA9350E1D9C1A22001916DA /* FlowLayout.m */; };
 		0EB0BEA81DABE587009BA29F /* CustomTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0BEA71DABE586009BA29F /* CustomTransition.m */; };
 		0EC0C9891D841FEE001D34E0 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC0C9881D841FEE001D34E0 /* TableViewController.m */; };
 		0ECFD7871D7FFEA80016C488 /* UIButton+ZSC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECFD7861D7FFEA80016C488 /* UIButton+ZSC.m */; };
 		0ECFD78A1D7FFED40016C488 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECFD7891D7FFED40016C488 /* UIView+YYAdd.m */; };
 		0ECFD78D1D7FFF000016C488 /* NSDictionary+unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECFD78C1D7FFF000016C488 /* NSDictionary+unicode.m */; };
+		D9F617711DE5C51900412843 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F6176D1DE5C51900412843 /* CollectionViewController.m */; };
+		D9F617721DE5C51900412843 /* ScaleFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F617701DE5C51900412843 /* ScaleFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,10 +103,6 @@
 		0E9E310D1D7ECA4E00EB1355 /* TestDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDemo.pch; sourceTree = "<group>"; };
 		0EA3A3461D93CF6E00296D20 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		0EA3A3471D93CF6E00296D20 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
-		0EA9350A1D9C13C7001916DA /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
-		0EA9350B1D9C13C7001916DA /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
-		0EA9350D1D9C1A22001916DA /* FlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowLayout.h; sourceTree = "<group>"; };
-		0EA9350E1D9C1A22001916DA /* FlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowLayout.m; sourceTree = "<group>"; };
 		0EB0BEA61DABE586009BA29F /* CustomTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTransition.h; sourceTree = "<group>"; };
 		0EB0BEA71DABE586009BA29F /* CustomTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTransition.m; sourceTree = "<group>"; };
 		0EC0C9871D841FEE001D34E0 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
@@ -120,6 +116,10 @@
 		A1812AAEC9E63E7BF34DDB15 /* Pods-TestDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestDemo/Pods-TestDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A541BB4E750075F8BCCA48DA /* Pods-TestDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDemo/Pods-TestDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		A8A8EC8FCA9A3132C80042D0 /* libPods-TestDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9F6176C1DE5C51900412843 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		D9F6176D1DE5C51900412843 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		D9F6176F1DE5C51900412843 /* ScaleFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleFlowLayout.h; sourceTree = "<group>"; };
+		D9F617701DE5C51900412843 /* ScaleFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaleFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,16 +186,13 @@
 				0E9E31041D7EC6D000EB1355 /* Category */,
 				0E9E31051D7EC6D000EB1355 /* Classes */,
 				0E9E31061D7EC6D000EB1355 /* CustomControl */,
+				D9F6176B1DE5C51900412843 /* CollectionVC */,
 				0E76823E1D7D715900F40B60 /* AppDelegate.h */,
 				0E76823F1D7D715900F40B60 /* AppDelegate.m */,
 				0E7682411D7D715900F40B60 /* ViewController.h */,
 				0E7682421D7D715900F40B60 /* ViewController.m */,
 				0EC0C9871D841FEE001D34E0 /* TableViewController.h */,
 				0EC0C9881D841FEE001D34E0 /* TableViewController.m */,
-				0EA9350D1D9C1A22001916DA /* FlowLayout.h */,
-				0EA9350E1D9C1A22001916DA /* FlowLayout.m */,
-				0EA9350A1D9C13C7001916DA /* CollectionViewController.h */,
-				0EA9350B1D9C13C7001916DA /* CollectionViewController.m */,
 				0E6AB0591D88493B00D649B0 /* TestViewController.swift */,
 				0E7682441D7D715900F40B60 /* Main.storyboard */,
 				0E5ECFA31DAA4A6A0093DCD0 /* CASTELAR.TTF */,
@@ -342,6 +339,25 @@
 				A8A8EC8FCA9A3132C80042D0 /* libPods-TestDemo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9F6176B1DE5C51900412843 /* CollectionVC */ = {
+			isa = PBXGroup;
+			children = (
+				D9F6176C1DE5C51900412843 /* CollectionViewController.h */,
+				D9F6176D1DE5C51900412843 /* CollectionViewController.m */,
+				D9F6176E1DE5C51900412843 /* Layout */,
+			);
+			path = CollectionVC;
+			sourceTree = "<group>";
+		};
+		D9F6176E1DE5C51900412843 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				D9F6176F1DE5C51900412843 /* ScaleFlowLayout.h */,
+				D9F617701DE5C51900412843 /* ScaleFlowLayout.m */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,22 +548,22 @@
 				0EB0BEA81DABE587009BA29F /* CustomTransition.m in Sources */,
 				0EA3A3481D93CF6E00296D20 /* RegexKitLite.m in Sources */,
 				0E7682431D7D715900F40B60 /* ViewController.m in Sources */,
+				D9F617711DE5C51900412843 /* CollectionViewController.m in Sources */,
 				0E450BED1DADCC6700D2EDFF /* ZHLCycleScrollView.m in Sources */,
 				0E7682401D7D715900F40B60 /* AppDelegate.m in Sources */,
 				0E6AB05A1D88493B00D649B0 /* TestViewController.swift in Sources */,
 				0ECFD78D1D7FFF000016C488 /* NSDictionary+unicode.m in Sources */,
 				0ECFD7871D7FFEA80016C488 /* UIButton+ZSC.m in Sources */,
 				0E20AA341DB9BFBE001EF3D6 /* UIButton+Delay.m in Sources */,
+				D9F617721DE5C51900412843 /* ScaleFlowLayout.m in Sources */,
 				0EC0C9891D841FEE001D34E0 /* TableViewController.m in Sources */,
 				0E5ECF9F1DAA3DA60093DCD0 /* UIDevice+ZHL.m in Sources */,
 				0E99854E1D80FDCB0001F0E5 /* UIViewController+Dispatch.m in Sources */,
-				0EA9350C1D9C13C7001916DA /* CollectionViewController.m in Sources */,
 				0E6AB0571D882B8C00D649B0 /* UIColor+ZHL.m in Sources */,
 				0ECFD78A1D7FFED40016C488 /* UIView+YYAdd.m in Sources */,
 				0E76823D1D7D715900F40B60 /* main.m in Sources */,
 				0E1AFFA91D96B380009D162E /* ZHLCircleView.m in Sources */,
 				0E20AA761DBA18FC001EF3D6 /* UIView+ZHL.m in Sources */,
-				0EA9350F1D9C1A22001916DA /* FlowLayout.m in Sources */,
 				0E5ECFA21DAA43760093DCD0 /* NSArray+ZHL.m in Sources */,
 				0E1DDD6A1D94F52C002FF974 /* UIViewController+Animation.m in Sources */,
 				0E97F1B51D893B8F006C2339 /* NSString+ZHL.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "CollectionViewController.h"
-#import "FlowLayout.h"
+#import "ScaleFlowLayout.h"
 @interface CollectionViewController ()
 
 @end
@@ -24,7 +24,10 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    FlowLayout *flowLayout = [FlowLayout new];
+    ScaleFlowLayout *flowLayout = [[ScaleFlowLayout alloc] init];
+
+    flowLayout.itemSize=CGSizeMake(150, 150);
+
 //    UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
 //    flowLayout.itemSize = CGSizeMake(70, 30);
     self.collectionView.collectionViewLayout = flowLayout;
