@@ -7,12 +7,12 @@
 //
 
 #import "CollectionViewController.h"
-<<<<<<< HEAD:TestDemo/CollectionViewController.m
-#import "FlowLayout.h"
+
+
 #import "CollectionViewCell.h"
-=======
+
 #import "ScaleFlowLayout.h"
->>>>>>> 3fbddbce18e724bd63ec8adb714ab658e8a7c636:TestDemo/CollectionVC/CollectionViewController.m
+
 @interface CollectionViewController ()
 
 @end
@@ -28,21 +28,12 @@ static NSString * const reuseIdentifier = @"Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-<<<<<<< HEAD:TestDemo/CollectionViewController.m
     [self.collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    FlowLayout *flowLayout = [FlowLayout new];
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    flowLayout.itemSize = CGSizeMake(ScreenWidth, ScreenHeight);
-
-=======
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+ 
     ScaleFlowLayout *flowLayout = [[ScaleFlowLayout alloc] init];
 
     flowLayout.itemSize=CGSizeMake(150, 150);
 
-//    UICollectionViewFlowLayout *flowLayout = [UICollectionViewFlowLayout new];
-//    flowLayout.itemSize = CGSizeMake(70, 30);
->>>>>>> 3fbddbce18e724bd63ec8adb714ab658e8a7c636:TestDemo/CollectionVC/CollectionViewController.m
     self.collectionView.collectionViewLayout = flowLayout;
     self.collectionView.pagingEnabled = YES;
     self.view.backgroundColor = [UIColor whiteColor];
