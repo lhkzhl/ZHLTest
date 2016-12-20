@@ -35,9 +35,9 @@
         <!--viewController-->
         <scene sceneID="TTo-Bg-b9d">
             <objects>
-                <navigationController id="e9d-JA-lRF" sceneMemberID="viewController">
+                <navigationController id="e9d-JA-lRF" customClass="NavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="viewController" id="BuC-P5-RD3"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JpD-kM-pyc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JpD-kM-pyc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

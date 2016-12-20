@@ -131,4 +131,42 @@ static const CGFloat kButtonTouchTimeInterval = 2.5f;
 #define DLog( s, ... )
 #endif
 
+
+
+
+
+
+
+
+#define kApplication        [UIApplication sharedApplication]
+#define kKeyWindow          [UIApplication sharedApplication].keyWindow
+#define kAppDelegate        [UIApplication sharedApplication].delegate
+#define kUserDefaults      [NSUserDefaults standardUserDefaults]
+#define kNotificationCenter [NSNotificationCenter defaultCenter]
+
+ #define kAppVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+#define kSystemVersion [[UIDevice currentDevice] systemVersion]
+#define kCurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
+//Device
+#define kISiPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define kISiPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#if TARGET_OS_IPHONE
+//真机
+#endif
+#if TARGET_IPHONE_SIMULATOR
+//模拟器
+#endif
+
+//path
+#define kDocumentPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+#define kTempPath NSTemporaryDirectory()
+#define kCachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+#define kDegreesToRadian(x)      (M_PI * (x) / 180.0)
+#define kRadianToDegrees(radian) (radian * 180.0) / (M_PI)
+
+
+#define kStartTime CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+#define kEndTime  NSLog(@"Time: %f", CFAbsoluteTimeGetCurrent() - start)
+
 #endif /* TestDemo_pch */
