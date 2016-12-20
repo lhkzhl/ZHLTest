@@ -22,10 +22,11 @@
 #import <VBFDoubleSegment.h>
 
 #import <AVFoundation/AVFoundation.h>
-
+#import "ReaderViewController.h"
+#import "Animator.h"
 #define TICK   CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
 #define TOCK   NSLog(@"Time: %f", CFAbsoluteTimeGetCurrent() - start)
-@interface ViewController ()
+@interface ViewController ()<UINavigationControllerDelegate>
 
 @property (nonatomic,strong) UIColor  *strokeColor;
 @property (nonatomic,strong) CAShapeLayer  *progressLayer;
@@ -69,8 +70,21 @@
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-
+    ReaderViewController *vc = [ReaderViewController new] ;
+    [self.navigationController pushViewController:vc animated:YES];
 }
+
+#pragma mark - UINavigationControllerDelegate
+-(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    
+}
+
+-(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
+    return [Animator new];
+}
+//-(id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController{
+////    return id <>
+//}
 
 -(void)xib{
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ZHLXibView" owner:self options:nil];
