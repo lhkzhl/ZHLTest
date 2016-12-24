@@ -55,12 +55,23 @@
 //    self.circleView = [[ZHLCircleView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
 //    [self.view addSubview:self.circleView];
 
-    
-    
+
 //[NSObject mj_keyValuesArrayWithObjectArray:<#(NSArray *)#>]
 //    [self mj_keyValuesWithKeys:<#(NSArray *)#>]
     
+
     NSLog(@"test");
+
+    
+    
+    
+}
+#pragma mark - click
+- (IBAction)button1Click:(id)sender {
+    //
+}
+- (IBAction)button2click:(id)sender {
+
 }
 
 
@@ -84,9 +95,6 @@
 -(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
     return [Animator new];
 }
-//-(id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController{
-////    return id <>
-//}
 
 -(void)xib{
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ZHLXibView" owner:self options:nil];

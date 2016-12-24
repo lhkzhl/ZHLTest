@@ -37,7 +37,7 @@
             <objects>
                 <navigationController id="e9d-JA-lRF" customClass="NavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="viewController" id="BuC-P5-RD3"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JpD-kM-pyc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JpD-kM-pyc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -68,6 +68,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEj-pc-3dH">
+                                <frame key="frameInset" minX="116" minY="169" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button1"/>
+                                <connections>
+                                    <action selector="button1Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JPx-pr-85E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijz-Os-lzS">
+                                <frame key="frameInset" minX="115" minY="264" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button2"/>
+                                <connections>
+                                    <action selector="button2click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M6Y-VI-9Uv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
