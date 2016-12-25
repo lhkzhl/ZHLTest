@@ -44,6 +44,8 @@
 		0ECFD78D1D7FFF000016C488 /* NSDictionary+unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECFD78C1D7FFF000016C488 /* NSDictionary+unicode.m */; };
 		0ED6DF4C1DF1171B00C80DB7 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED6DF4B1DF1171B00C80DB7 /* CollectionViewCell.m */; };
 		0EFEEF591E08F98700BA9C87 /* HLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EFEEF581E08F98700BA9C87 /* HLFileManager.m */; };
+		D9959C1F1E0E663C0004BFD8 /* HLDownloadInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D9959C1E1E0E663C0004BFD8 /* HLDownloadInfo.m */; };
+		D9959C221E0E66520004BFD8 /* HLDownLoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D9959C211E0E66520004BFD8 /* HLDownLoadManager.m */; };
 		D9F617711DE5C51900412843 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F6176D1DE5C51900412843 /* CollectionViewController.m */; };
 		D9F617721DE5C51900412843 /* ScaleFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F617701DE5C51900412843 /* ScaleFlowLayout.m */; };
 /* End PBXBuildFile section */
@@ -139,6 +141,10 @@
 		A1812AAEC9E63E7BF34DDB15 /* Pods-TestDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestDemo/Pods-TestDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A541BB4E750075F8BCCA48DA /* Pods-TestDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestDemo/Pods-TestDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		A8A8EC8FCA9A3132C80042D0 /* libPods-TestDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9959C1D1E0E663C0004BFD8 /* HLDownloadInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDownloadInfo.h; sourceTree = "<group>"; };
+		D9959C1E1E0E663C0004BFD8 /* HLDownloadInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDownloadInfo.m; sourceTree = "<group>"; };
+		D9959C201E0E66520004BFD8 /* HLDownLoadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLDownLoadManager.h; sourceTree = "<group>"; };
+		D9959C211E0E66520004BFD8 /* HLDownLoadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLDownLoadManager.m; sourceTree = "<group>"; };
 		D9F6176C1DE5C51900412843 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		D9F6176D1DE5C51900412843 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		D9F6176F1DE5C51900412843 /* ScaleFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleFlowLayout.h; sourceTree = "<group>"; };
@@ -249,6 +255,10 @@
 				0EA3A3441D93CF6E00296D20 /* Lib */,
 				0EFEEF571E08F98700BA9C87 /* HLFileManager.h */,
 				0EFEEF581E08F98700BA9C87 /* HLFileManager.m */,
+				D9959C1D1E0E663C0004BFD8 /* HLDownloadInfo.h */,
+				D9959C1E1E0E663C0004BFD8 /* HLDownloadInfo.m */,
+				D9959C201E0E66520004BFD8 /* HLDownLoadManager.h */,
+				D9959C211E0E66520004BFD8 /* HLDownLoadManager.m */,
 				0E9E31041D7EC6D000EB1355 /* Category */,
 				0E9E31051D7EC6D000EB1355 /* Classes */,
 				0E9E31061D7EC6D000EB1355 /* CustomControl */,
@@ -630,6 +640,7 @@
 				0E4B269B1E03E45D008BABCC /* Animator.m in Sources */,
 				0ED6DF4C1DF1171B00C80DB7 /* CollectionViewCell.m in Sources */,
 				0ECFD78D1D7FFF000016C488 /* NSDictionary+unicode.m in Sources */,
+				D9959C1F1E0E663C0004BFD8 /* HLDownloadInfo.m in Sources */,
 				0ECFD7871D7FFEA80016C488 /* UIButton+ZSC.m in Sources */,
 				0E20AA341DB9BFBE001EF3D6 /* UIButton+Delay.m in Sources */,
 				D9F617721DE5C51900412843 /* ScaleFlowLayout.m in Sources */,
@@ -638,6 +649,7 @@
 				0EFEEF591E08F98700BA9C87 /* HLFileManager.m in Sources */,
 				0E99854E1D80FDCB0001F0E5 /* UIViewController+Dispatch.m in Sources */,
 				0E6AB0571D882B8C00D649B0 /* UIColor+ZHL.m in Sources */,
+				D9959C221E0E66520004BFD8 /* HLDownLoadManager.m in Sources */,
 				0ECFD78A1D7FFED40016C488 /* UIView+YYAdd.m in Sources */,
 				0E76823D1D7D715900F40B60 /* main.m in Sources */,
 				0E1AFFA91D96B380009D162E /* ZHLCircleView.m in Sources */,
