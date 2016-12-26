@@ -84,6 +84,7 @@
 		0E20AA751DBA18FC001EF3D6 /* UIView+ZHL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZHL.m"; sourceTree = "<group>"; };
 		0E450BEB1DADCC6600D2EDFF /* ZHLCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHLCycleScrollView.h; sourceTree = "<group>"; };
 		0E450BEC1DADCC6600D2EDFF /* ZHLCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHLCycleScrollView.m; sourceTree = "<group>"; };
+		0E4AAC791E10DFF20041BB6D /* HLDownload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLDownload.h; sourceTree = "<group>"; };
 		0E4B26991E03E45D008BABCC /* Animator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animator.h; sourceTree = "<group>"; };
 		0E4B269A1E03E45D008BABCC /* Animator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animator.m; sourceTree = "<group>"; };
 		0E5ECF9D1DAA3DA60093DCD0 /* UIDevice+ZHL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+ZHL.h"; sourceTree = "<group>"; };
@@ -259,6 +260,7 @@
 				D9959C1E1E0E663C0004BFD8 /* HLDownloadInfo.m */,
 				D9959C201E0E66520004BFD8 /* HLDownLoadManager.h */,
 				D9959C211E0E66520004BFD8 /* HLDownLoadManager.m */,
+				0E4AAC791E10DFF20041BB6D /* HLDownload.h */,
 				0E9E31041D7EC6D000EB1355 /* Category */,
 				0E9E31051D7EC6D000EB1355 /* Classes */,
 				0E9E31061D7EC6D000EB1355 /* CustomControl */,

@@ -101,6 +101,14 @@ static NSString * const kDownloadCacheDirectory = @"HLDownloadCache";
 }
 
 
+-(void)resume{
+    [self.task resume];
+}
+-(void)suspend{
+    [self.task suspend];
+}
+
+
 @end
 
 

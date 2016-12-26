@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "HLDownloadInfo.h"
 @interface HLDownLoadManager : NSObject
 
 /** 最大同时下载数 */
@@ -17,5 +17,8 @@
 /** 下载的session会话 */
 @property (nonatomic, strong) NSURLSession *session;
 
++(HLDownLoadManager *)manager;
+
+-(HLDownloadInfo *)downloadUrlString:(NSString *)urlString toDestinationPath:(NSString *)destinationPath progress:(HLDownloadProgressChangedBlock)progress state:(HLDownloadStateChangedBlock)state;
 
 @end

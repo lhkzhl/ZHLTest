@@ -24,6 +24,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ReaderViewController.h"
 #import "Animator.h"
+#import "HLDownload.h"
 #define TICK   CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
 #define TOCK   NSLog(@"Time: %f", CFAbsoluteTimeGetCurrent() - start)
 @interface ViewController ()<UINavigationControllerDelegate>
@@ -69,6 +70,8 @@
 #pragma mark - click
 - (IBAction)button1Click:(id)sender {
     //
+    HLDownloadInfo *downloadInfo = [[HLDownloadInfo alloc] initWithUrlString:@"http://baobab.wdjcdn.com/1456117847747a_x264.mp4"];
+//    [downloadInfo ]
 }
 - (IBAction)button2click:(id)sender {
 
