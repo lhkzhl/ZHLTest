@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "HLDownloadInfo.h"
+
+#define HLDownManager  [HLDownLoadManager manager]
+
 @interface HLDownLoadManager : NSObject
 
 /** 最大同时下载数 */

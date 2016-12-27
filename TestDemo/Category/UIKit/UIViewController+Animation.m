@@ -72,6 +72,7 @@ static UILabel *aTestLabel = nil;
     
     keyframeAnimation.duration = 2;
     keyframeAnimation.repeatCount = INFINITY;
+    
     keyframeAnimation.delegate = self;
     /**
      *  一起才有作用

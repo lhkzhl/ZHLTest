@@ -132,7 +132,13 @@
 + (BOOL)createDirectoryAtPath:(NSString *)path {
     return [self createDirectoryAtPath:path error:nil];
 }
-
++(BOOL)createDirectorySafelyAtPath:(NSString *)path{
+    if (![self isExistsAtPath:path]) {
+        return [self createDirectoryAtPath:path];
+    }else{
+        return YES;
+    }
+}
 + (BOOL)createDirectoryAtPath:(NSString *)path error:(NSError *__autoreleasing *)error {
     NSFileManager *manager = [NSFileManager defaultManager];
     BOOL isSuccess = [manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:error];

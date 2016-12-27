@@ -18,10 +18,16 @@ typedef enum : NSUInteger {
     HLDownloadStateFailed       // 下载失败
 } HLDownloadState;
 
-typedef void(^HLDownloadStateChangedBlock)();
-typedef void(^HLDownloadProgressChangedBlock)();
-
 @class HLDownLoadProgress;
+typedef void(^HLDownloadStateChangedBlock)(HLDownloadState state,NSString *filePath,NSError *error);
+typedef void(^HLDownloadProgressChangedBlock)(HLDownLoadProgress *progress);
+
+
+
+
+#define HLNoteCenter [NSNotificationCenter defaultCenter]
+
+
 @interface HLDownloadInfo : NSObject
 
 // >>>>>>>>>>>>>>>>>>>>>>文件 download info
@@ -37,13 +43,15 @@ typedef void(^HLDownloadProgressChangedBlock)();
 
 // >>>>>>>>>>>>>>>>>>>>>> task info
 /** 下载状态 */
-@property (nonatomic, assign, readonly) HLDownloadState donwloadState;
+@property (nonatomic, assign, readonly) HLDownloadState downloadState;
 /** 下载进度 */
 @property (nonatomic, strong, readonly) HLDownLoadProgress *downloadProgress;
 /** 下载任务 */
 @property (nonatomic, strong, readonly) NSURLSessionTask *task;
 /** 文件流 */
 @property (nonatomic, strong, readonly) NSOutputStream *stream;
+/** 错误 */
+@property (nonatomic,strong,readonly) NSError  *error;
 
 
 
@@ -56,6 +64,10 @@ typedef void(^HLDownloadProgressChangedBlock)();
 
 -(id)initWithUrlString:(NSString *)urlString;
 -(id)initWithUrlString:(NSString *)urlString filePath:(NSString *)filePath;
+
+
++(NSString *)downloadStateSringForState:(HLDownloadState)state;
+
 @end
 
 

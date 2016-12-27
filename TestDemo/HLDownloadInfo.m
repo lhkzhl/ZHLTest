@@ -12,6 +12,12 @@
 /** 默认cache 根目录 */
 static NSString * const kDownloadCacheDirectory = @"HLDownloadCache";
 
+
+
+static NSString * const HLDownloadProgressDidChangeNotification = @"HLDownloadProgressDidChangeNotification";
+static NSString * const HLDownloadStateDidChangeNotification = @"HLDownloadStateDidChangeNotification";
+static NSString * const HLDownloadInfoKey = @"HLDownloadInfoKey";
+
 @interface HLDownloadInfo ()
 
 
@@ -27,7 +33,7 @@ static NSString * const kDownloadCacheDirectory = @"HLDownloadCache";
 
 // >>>>>>>>>>>>>>>>>>>>>> task info
 /** 下载状态 */
-@property (nonatomic, assign) HLDownloadState donwloadState;
+@property (nonatomic, assign) HLDownloadState downloadState;
 /** 下载进度 */
 @property (nonatomic, strong) HLDownLoadProgress *downloadProgress;
 /** 下载任务 */
@@ -35,6 +41,8 @@ static NSString * const kDownloadCacheDirectory = @"HLDownloadCache";
 /** 文件流 */
 @property (nonatomic, strong) NSOutputStream *stream;
 
+/** 错误 */
+@property (nonatomic,strong) NSError  *error;
 
 
 
@@ -59,7 +67,14 @@ static NSString * const kDownloadCacheDirectory = @"HLDownloadCache";
     }
     return self;
 }
-
+#pragma mark - setter
+-(void)setDownloadState:(HLDownloadState)downloadState{
+    if (_downloadState != downloadState) {
+        _downloadState = downloadState;
+        
+        [self notifyStateChange];
+    }
+}
 
 #pragma mark - getter
 -(NSString *)fileName{
@@ -73,9 +88,10 @@ static NSString * const kDownloadCacheDirectory = @"HLDownloadCache";
     if (!_downloadDirectory) {
         _downloadDirectory = [[HLFileManager cachesDir] stringByAppendingPathComponent:kDownloadCacheDirectory];
         
-//        if ([HLFileManager isExistsAtPath:_downloadDirectory]) {
-//            [HLFileManager createDirectoryAtPath:_downloadDirectory];
-//        }
+        if (![HLFileManager isExistsAtPath:_downloadDirectory]) {
+            [HLFileManager createDirectoryAtPath:_downloadDirectory];
+        }
+        
     }
     return _downloadDirectory;
 }
@@ -88,16 +104,72 @@ static NSString * const kDownloadCacheDirectory = @"HLDownloadCache";
 }
 
 
+-(void)setupTaskWithSession:(NSURLSession *)session{
+    if (self.task) {
+        return;
+    }
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.urlString]];
+    
+    NSString *range = [NSString stringWithFormat:@"bytes=%zd-",[[HLFileManager sizeOfFileAtPath:self.filePath] longLongValue]];
+    [request setValue:range forHTTPHeaderField:@"Range"];
+    
+    self.task = [session dataTaskWithRequest:request];
+    self.task.taskDescription = self.urlString;
+}
+
+
+-(NSOutputStream *)stream{
+    if (!_stream) {
+        _stream = [NSOutputStream outputStreamToFileAtPath:self.filePath append:YES];
+    }
+    return _stream;
+}
+
+-(HLDownLoadProgress *)downloadProgress{
+    if (!_downloadProgress) {
+        _downloadProgress = [[HLDownLoadProgress alloc] init];
+    }
+    //刷新 已下载的数量
+    _downloadProgress.totalBytesWritten = [[HLFileManager sizeOfFileAtPath:self.filePath] longLongValue];
+    return _downloadProgress;
+}
+
++(NSString *)downloadStateSringForState:(HLDownloadState)state{
+    NSArray *array = @[
+    @"HLDownloadStateNone",    // 未下载
+    @"HLDownloadStateReadying",    // 等待下载
+    @"HLDownloadStateRunning",     // 正在下载
+    @"HLDownloadStateSuspended",   // 下载暂停
+    @"HLDownloadStateCompleted",   // 下载完成
+    @"HLDownloadStateFailed"
+    ];
+    return array[state];
+}
+#pragma mark - Notification
+-(void)notifyProgressChange{
+    if (self.progressChangedBlock) {
+        self.progressChangedBlock(self.downloadProgress);
+    }
+    [HLNoteCenter postNotificationName:HLDownloadProgressDidChangeNotification object:self userInfo:@{HLDownloadInfoKey:self}];
+}
+
+-(void)notifyStateChange{
+    if (self.stateChangedBlcok) {
+        self.stateChangedBlcok(self.downloadState,self.filePath,self.error);
+    }
+    [HLNoteCenter postNotificationName:HLDownloadStateDidChangeNotification object:self userInfo:@{HLDownloadInfoKey:self}];
+}
+
 #pragma mark - download
 
 /** 取消下载 */
 -(void)cancel{
-    if (!self.task  && self.donwloadState == HLDownloadStateReadying) {
+    if (!self.task  && self.downloadState == HLDownloadStateReadying) {
         
     }
     
     [self.task cancel];
-    self.donwloadState = HLDownloadStateNone;
+    self.downloadState = HLDownloadStateNone;
 }
 
 
@@ -108,6 +180,57 @@ static NSString * const kDownloadCacheDirectory = @"HLDownloadCache";
     [self.task suspend];
 }
 
+#pragma mark - task delegate
+
+-(void)didReceiveResponse:(NSURLResponse *)response{
+    
+    self.downloadState = HLDownloadStateRunning;
+    [self.stream open];
+    
+    //更新文件的总大小
+    self.downloadProgress.totalBytesExpectWritten = self.task.countOfBytesExpectedToReceive;
+    //TODO:保存
+    
+}
+
+-(void)didReceiveData:(NSData *)data{
+    
+    NSInteger result = [self.stream write:data.bytes maxLength:data.length];
+    
+    if (result == -1) {
+        //错误情况  1.文件所在目录不存在，2 notOpen
+        NSLog(@"stream--- result :%zd  error: %@ ",result,self.stream.streamError);
+    }else{
+        NSLog(@"stream result :%zd",result);
+        
+        //更新这次写入字节数量
+        self.downloadProgress.bytesWritten = result;
+        
+        
+    }
+    
+    
+    
+    if (self.progressChangedBlock) {
+        self.progressChangedBlock(self.downloadProgress);
+    }
+    
+    
+    
+}
+
+-(void)didCompleteWithError:(NSError *)error{
+    
+    if (error) {
+        self.downloadState = HLDownloadStateFailed;
+    }else{
+        self.downloadState = HLDownloadStateCompleted;
+    }
+    
+    
+    [self.stream close];
+    self.stream = nil;
+}
 
 @end
 
@@ -115,6 +238,7 @@ static NSString * const kDownloadCacheDirectory = @"HLDownloadCache";
 
 
 @implementation HLDownLoadProgress
+
 
 @end
 

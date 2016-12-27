@@ -70,8 +70,18 @@
 #pragma mark - click
 - (IBAction)button1Click:(id)sender {
     //
-    HLDownloadInfo *downloadInfo = [[HLDownloadInfo alloc] initWithUrlString:@"http://baobab.wdjcdn.com/1456117847747a_x264.mp4"];
-//    [downloadInfo ]
+    NSString *urlString = @"http://baobab.wdjcdn.com/1456117847747a_x264.mp4";
+
+    
+    
+
+    HLDownLoadManager *manager = [HLDownLoadManager manager];
+    [manager downloadUrlString:urlString toDestinationPath:nil progress:^(HLDownLoadProgress *progress) {
+        NSLog(@"%@",progress);
+    } state:^(HLDownloadState state, NSString *filePath, NSError *error) {
+        NSLog(@"state:%@  filePath:%@  error:%@",[HLDownloadInfo downloadStateSringForState:state],filePath,error);
+    }];
+    
 }
 - (IBAction)button2click:(id)sender {
 
