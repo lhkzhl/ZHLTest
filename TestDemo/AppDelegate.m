@@ -13,11 +13,34 @@
 @end
 
 @implementation AppDelegate
-
+-(BOOL)needUpdateWithVersion:(NSString *)version{
+    NSString  *currentVersion = @"2.4";
+    NSArray *v1Array = [currentVersion componentsSeparatedByString:@"."];
+    NSArray *v2Array = [version componentsSeparatedByString:@"."];
+    NSInteger  count = (v1Array.count > v2Array.count) ? v2Array.count : v1Array.count;
+    
+    
+    for (int i = 0; i<count; i++) {
+        NSInteger v1 = [[v1Array objectAtIndex:i] integerValue];
+        NSInteger v2 = [[v2Array objectAtIndex:i] integerValue];
+        if (v2 > v1) {
+            return YES;
+        }else if (v1 > v2){
+            return NO;
+        }
+    }
+    if (v2Array.count > v1Array.count) {
+        return YES;
+    }
+    
+    return NO;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+
     
     
     NSDecimalNumber *num1 = [[NSDecimalNumber alloc] initWithFloat:100.65];
